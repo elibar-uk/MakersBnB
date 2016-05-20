@@ -1,3 +1,9 @@
+<div class="jumbotron">
+<div class="container">
+  <div class="well well-sm">
+
+
+
 <ul id='requests'> <h1>Requests that I've made</h1>
   <% if @current_user %>
     <% @current_user.bookings.each do |booking| %>
@@ -9,14 +15,21 @@
 
         <form action='/request/:id' method="post">
           <input type="hidden" name="booking_id" value="<%= booking.id %>">
-          <input type="submit"  value="view request details">
+          <button type="submit"class="btn btn-default btn-lg">
+            <span class="glyphicon glyphicon-hand-up" aria-hidden="true"></span>view request details
+          </button>
         </form>
+
 
       </li>
       <% end %>
     <% end %>
 </ul>
+  </div>
+</div>
 
+<div class="container">
+  <div class="well well-sm">
 <ul id='requests'> <h1>Requests for my spaces</h1>
   <% if @current_user %>
     <% @current_user.spaces.bookings.each do |booking| %>
@@ -28,10 +41,13 @@
 
         <form action='/request/:id' method="post">
           <input type="hidden" name="booking_id" value="<%= booking.id %>">
-          <input type="submit"  value="view request details">
+          <input type="submit" class="btn btn-default btn-lg" value="view request details">
         </form>
 
       </li>
       <% end %>
     <% end %>
 </ul>
+</div>
+</div>
+</div>

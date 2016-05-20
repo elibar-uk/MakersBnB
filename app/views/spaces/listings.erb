@@ -1,10 +1,26 @@
+<div class="jumbotron">
+
+  <div class="container">
+    <div class="well well-sm">
+      <div class=class="btn-group btn-group-lg" role="group">
+      <% if @current_user %>
+      <h2>Hello <%= @current_user.firstname %>!</h2>
+          <form action="/sessions" method="post">
+              <input type='hidden' name='_method' value='delete'>
+              <button type="submit"class="btn btn-default btn-lg">Sign out</button>
+            </form>
+      <% end %>
+
 <% if @current_user %>
-  <h2>Hello <%= @current_user.firstname %>!</h2>
-  <form action="/sessions" method="post">
-    <input type='hidden' name='_method' value='delete'>
-    <button type="submit">Sign out</button>
+  <form action="/spaces/new" method="get">
+    <input type="submit" class="btn btn-default btn-lg" value="list a space">
+  </form>
+
+  <form action="/requests" method="get">
+    <input type="submit" class="btn btn-default btn-lg" value="view requests">
   </form>
 <% end %>
+</div>
 
 <ul id='spaces'>
   <% Space.reverse_each do |space| %>
@@ -12,20 +28,17 @@
       Name of your property: <%= space.name %>
       Description: <%= space.description %>
       Price per night: <%= space.price %>
-      <form action="/spaces/:id" method="get">
+      <form action="/spaces/<%= space.id %>" method="get">
         <input type="hidden" name="space_id" value="<%= space.id %>">
-        <input type="submit" name="view details" value="view details">
+        <button type="submit"class="btn btn-default btn-lg">
+          <span class="glyphicon glyphicon-hand-up" aria-hidden="true"></span>view details
+        </button>
       </form>
     </li>
   <% end %>
 </ul>
+</div>
+</div>
 
-<% if @current_user %>
-  <form action="/spaces/new" method="get">
-    <input type="submit"  value="list a space">
-  </form>
 
-  <form action="/requests" method="get">
-    <input type="submit"  value="view requests">
-  </form>
-<% end %>
+</div>

@@ -1,20 +1,38 @@
-<h1>spaces go here</h1>
-<form action="/spaces/new" method="post">
-  <label for="name">Name</label>
-  <input type='text' name='name'>
-
-  <label for="description">Description</label>
-  <input type='text' name='description'>
-
-  <label for="price">Price</label>
-  <input type='text' name='price'>
-  <label for='start_date'>Available on:</label>
-  <input type='date' name='start_date'>
-  <label for='end_date'>Available until:</label>
-  <input type='date' name='end_date'>
-  <input type='submit' value='add space'>
-</form>
-
-<% if flash[:notice] %>
-  <%= flash[:notice] %>
-<% end %>
+<div class="jumbotron">
+  <div class="container">
+    <div class="well well-sm">
+      <div class="form-group">
+      <h1>Add your listing's details: </h1>
+      </div>
+    </div>
+    <div class="container">
+      <div class="well well-sm">
+         <form action="/spaces/new" method="post">
+         <label for="name">Name</label>
+        <input type='text' name='name'>
+      </div>
+    </div>
+      <div class="container">
+        <div class="well well-sm">
+            <label for="description">Description</label>
+              <input type='text' name='description'>
+        </div>
+      </div>
+      <div class="container">
+        <div class="well well-sm">
+          <label for="price">Price £</label>
+          <input type='text' name='price'>
+        </div>
+      </div>
+      <div class="container">
+        <div class="well well-sm">
+          <label for='start_date'>Available on:</label>
+          <input type='date' name='start_date' min='<%= DateTime.now.to_date %>'>
+          <label for='end_date'>Available until:</label>
+          <input type='date' name='end_date'>
+          <input type='submit' class="btn btn-default btn-lg" value='add space'>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
