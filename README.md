@@ -43,4 +43,6 @@ A range of technologies have been used to create this AirBnB clone, these techno
 - coveralls
 - rspec
 
-CONTRIBUTORS: Jack Hardy, Elia Bardashevich, Matthew Ward, Macey Baker
+CONTRIBUTORS
+------------
+Jack Hardy, Elia Bardashevich, Matthew Ward, Macey Baker
